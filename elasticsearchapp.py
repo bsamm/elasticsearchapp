@@ -22,7 +22,7 @@ class ElasticSearchApp(object):
         self.check_status_of_elastic_search()
 
     def set_up_menu(self):
-        self.app.title = "ES"
+        self.app.icon = "./icon-white.png"
 
     def start_elastic_search(self, sender):
         os.system('brew services start elasticsearch')
