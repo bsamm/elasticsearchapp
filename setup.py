@@ -1,7 +1,7 @@
 from setuptools import setup
 
 APP = ['elasticsearchapp.py']
-DATA_FILES = []
+DATA_FILES = ['icon-white.icns']
 OPTIONS = {
     'argv_emulation': True,
     'iconfile': 'icon.icns',
