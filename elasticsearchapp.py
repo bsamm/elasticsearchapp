@@ -25,15 +25,17 @@ class ElasticSearchApp(object):
         self.app.icon = "./icon-white.icns"
 
     def start_elastic_search(self, sender):
-        os.system('brew services start elasticsearch')
+        os.system('/usr/local/bin/brew services start elasticsearch')
         self.check_status_of_elastic_search()
 
     def stop_elastic_search(self, sender):
-        os.system('brew services stop elasticsearch')
+        os.system('/usr/local/bin/brew services stop elasticsearch')
         self.check_status_of_elastic_search()
 
     def check_status_of_elastic_search(self):
-        if 'stopped' in os.popen('brew services list | grep elasticsearch').read():
+        status = os.popen('/usr/local/bin/brew services list | grep elasticsearch').read()
+
+        if 'stopped' in status:
             self.stop_button.set_callback(None)
             self.view_port_button.set_callback(None)
             self.start_button.set_callback(self.start_elastic_search)
